@@ -1,29 +1,29 @@
 'use client';
 
- // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
+// any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
 
-import { Button } from 'react-bootstrap';
-import { signOut } from '@/utils/auth'; // anything in the src dir, you can use the @ instead of relative paths
-import { useAuth } from '@/utils/context/authContext';
+import { useEffect, useState } from 'react';
+import { getAllIceCream } from '../api/iceCream';
+import IceCreamCard from '../components/IceCreamCard';
 
 function Home() {
-  const { user } = useAuth();
+  const [iceCream, setIceCream] = useState([]);
+
+  const iceCreamData = async () => {
+    const data = await getAllIceCream();
+    setIceCream(data);
+  };
+
+  useEffect(() => {
+    iceCreamData();
+  }, []);
 
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
-      <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
-        Sign Out
-      </Button>
+    <div>
+      {console.warn(iceCream)}
+      {iceCream.map((i) => (
+        <IceCreamCard key={i.firebaseKey} iceCreamObj={i} />
+      ))}
     </div>
   );
 }
