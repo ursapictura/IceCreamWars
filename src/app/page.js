@@ -19,10 +19,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      {console.warn(iceCream)}
+    <div className="iceBox d-flex flex-wrap" style={{ marginTop: '100px' }}>
       {iceCream.map((i) => (
-        <IceCreamCard key={i.firebaseKey} iceCreamObj={i} />
+        <IceCreamCard key={i.firebaseKey} iceCreamObj={i} onUpdate={iceCreamData} />
       ))}
     </div>
   );
