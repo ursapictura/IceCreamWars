@@ -1,4 +1,38 @@
 body {
-  background: black;
-  color: white;
+  background-image: radial-gradient(#BA8ECF 1.5px, transparent 1.5px), radial-gradient(#BA8ECF 1.5px, transparent 1.5px);
+	background-size: 65px 65px;
+	background-position: 0 0, 32.5px 32.5px;
+	background-color: #F5F5FF;
+  color: #8968A9;
+}
+
+.iceBox {
+  justify-content: space-evenly;
+}
+
+.Vanilla {
+  border: 5px solid rgb(44, 160, 206);
+  background-color: white;
+  color: rgb(44, 160, 206);
+}
+
+.Chocolate {
+  border: 5px solid rgb(97, 77, 77);
+  background-color: white;
+  color: rgb(97, 77, 77);
+}
+
+.Lobster {
+  border: 5px solid rgb(194, 80, 99);
+  background-color: white;
+  color: rgb(194, 80, 99);
+}
+
+.likeButtons {
+  margin: 10px auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
 }

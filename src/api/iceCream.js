@@ -12,15 +12,13 @@ const dbUrl = process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL;
 //   return response;
 // }
 
-const updateIceCream = async (firebaseKey, val) => {
-  const patch = await fetch(`${dbUrl}/response${val}/${firebaseKey}.json`, {
+const updateIceCream = async (payload) => {
+  const patch = await fetch(`${dbUrl}/iceCream/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      firebaseKey,
-    }),
+    body: JSON.stringify(payload),
   });
   const response = patch.json();
   return response;
@@ -36,6 +34,7 @@ const getAllIceCream = async () => {
   const response = await read.json();
   return Object.values(response);
 };
+
 // const deleteFact = async (firebaseKey, val) => {
 //   const del = await fetch(`${dbUrl}/response${val}/${firebaseKey}.json`, {
 //     method: 'DELETE',
