@@ -20,15 +20,17 @@ export default function NavBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-              {/* <Link className="nav-link" href="/form">
-                ➕ CREATE A FACT
-              </Link>
-              <Link className="nav-link" href={`/response/${user.uid}?value=Yes`}>
+              {
+                <Link className="nav-link" href="/modal">
+                  Modal
+                </Link>
+                /* <Link className="nav-link" href={`/response/${user.uid}?value=Yes`}>
                 ✅ YES
               </Link>
               <Link className="nav-link" href={`/response/${user.uid}?value=No`}>
                 ❌ NO
-              </Link> */}
+              </Link> */
+              }
             </Nav>
 
             <Button variant="outline-light" size="lg" onClick={signOut}>
