@@ -10,7 +10,7 @@ export default function IceCreamCard({ iceCreamObj, onUpdate }) {
   // const [dislikes, setDislikes] = useState({});
 
   const dislikeIceCream = () => {
-    const payload = { ...iceCreamObj, dislikes: iceCreamObj.dislikes - 1 };
+    const payload = { ...iceCreamObj, dislikes: iceCreamObj.dislikes + 1 };
     console.warn(payload, iceCreamObj.firebaseKey);
     updateIceCream(payload).then(() => onUpdate());
   };
@@ -33,6 +33,7 @@ export default function IceCreamCard({ iceCreamObj, onUpdate }) {
         <Card.Body style={{ textAlign: 'center' }}>
           <h5>Likes: {iceCreamObj.likes}</h5>
           <h5>Dislikes: {iceCreamObj.dislikes}</h5>
+          <h4>Vibe: {iceCreamObj.likes - iceCreamObj.dislikes} </h4>
         </Card.Body>
         <div className="button-container">
           <Button className={iceCreamObj.flavor} onClick={likeIceCream}>
